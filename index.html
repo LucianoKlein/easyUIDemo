@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>SCU</title>
+		<!--introduce css & js files-->
+		<link rel="stylesheet" type="text/css" href="js/jquery-easyui/themes/default/easyui.css"><!--主题样式-->
+		<link rel="stylesheet" type="text/css" href="js/jquery-easyui/themes/default/icon.css"><!--图标样式-->
+		<script type="application/javascript" src="js/jquery-easyui/jquery.min.js"></script><!--jquery核心库-->
+		<script type="application/javascript" src="js/jquery-easyui/jquery.easyui.min.js"></script><!--easyui核心库-->
+		<style type="text/css"></style>
+	</head>
+	<body>
+		<!---->
+		<div class="easyui-layout" fit="true">
+			<div data-options="region:'north'" style="height:50px"></div>
+			<div data-options="region:'south',split:true" style="height:50px"></div>
+			<div data-options="region:'east',split:true" title="East" style="width:180px;"></div>
+			<div data-options="region:'west',split:true" title="West" style="width:100px;"></div>
+			<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'"></div>
+		</div>
+	</body>
+</html>
