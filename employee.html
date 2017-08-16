@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8"/>
+		<meta charset="UTF-8" />
 		<title>Staff Service</title>
+		<link rel="stylesheet" type="text/css" href="js/jquery-easyui/themes/default/easyui.css">
+		<!--主题样式-->
+		<link rel="stylesheet" type="text/css" href="js/jquery-easyui/themes/icon.css">
+		<!--图标样式-->
+		<script type="application/javascript" src="js/jquery-easyui/jquery.min.js"></script>
+		<!--jquery核心库-->
+		<script type="application/javascript" src="js/jquery-easyui/jquery.easyui.min.js"></script>
+		<!--easyui核心库-->
 	</head>
+
 	<body>
-		<h1>Staff Service</h1>
+		<h1>Student Service</h1>
+		<table class="easyui-datagrid" fit="true" url="employee.json" fitColumns="true" rownumbers="true" pagination="true" toolbar="#tb">
+			<thead>
+				<tr>
+					<th field="name" width="1" align="center">Name</th>
+					<th field="age" width="1" align="center">Age</th>
+					<th field="dept" width="1" align="center" formatter="deptFormatter">Department</th>
+					<th field="email" width="1" align="center">Email</th>
+				</tr>
+			</thead>
+		</table>
+		<!--定义数据表格按钮-->
+		<div id="tb">
+			<a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="add();">New</a>
+			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="edit();">Edit</a>
+			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="del();">Delete</a>
+			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refresh();">Refresh</a>
+		</div>
+		<!--定义对话框-->
+		<div id="sysDialog" class="easyui-dialog" style="height:230px;width:300px;" buttons="#bt" closed="true"
+			modal="true"><!--配置了modal, 点开新窗口, 那些按钮就不可以再点了-->
+			<!--定义表单-->
+			<form id="sysForm" action="/xxx" method="post">
+				<table align="center" style="margin-top: 10px;">
+					<tr>
+						<td>Name</td>
+						<td><input type="text" name="name"></td>
+					</tr>
+					<tr>
+						<td>Age</td>
+						<td><input type="text" name="age"></td>
+					</tr>
+					<tr>
+						<td>Department</td>
+						<td>
+							<select name="dept.id" class="easyui-combobox" panelHeight="auto" style="width:150px" name="email">
+								<option value="1">CSE</option>
+								<option value="2">BA</option>
+								<option value="3">IS</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type="text" name="email" class="easyui-validatebox" data-options="required:true,validType:'email'">
+
+						</td>
+					</tr>
+				</table>
+				<div id="bt">
+					<a class="easyui-linkbutton" iconCls="icon-save" onclick="save();">Save</a>
+					<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="cancel();">Cancel</a>
+				</div>
+			</form>
+		</div>
+		<script type="application/javascript">
+			function add() {
+				//清空表单内容
+				$("#sysForm").form("clear");
+				//打开对话框
+				$("#sysDialog").dialog("open");
+				//改变对话框的标题文本
+				$("#sysDialog").dialog("setTitle","New");
+			}
+
+			function edit() {
+				alert("edit");
+			}
+
+			function del() {
+				alert("del");
+			}
+
+			function refresh() {
+				alert("refresh");
+			}
+
+			function save() {
+				$("#sysForm").submit();
+				//alert("save");
+			}
+
+			function cancel() {
+				$("#sysDialog").dialog("close");
+				//alert("cancel");
+			}
+
+			function deptFormatter(value, rowData, index) {
+				if (value) {
+					return value.name;
+				}
+				return value;
+			}
+		</script>
 	</body>
+
 </html>
