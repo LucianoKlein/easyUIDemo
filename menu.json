@@ -1,0 +1,11 @@
+[
+	{
+		"id":1,
+		"text":"Student Service",
+		"attributes":{"url":"employee.html"}
+	},{
+		"id":2,
+		"text":"Department Service",
+		"attributes":{"url":"department.html"}
+	}
+]
